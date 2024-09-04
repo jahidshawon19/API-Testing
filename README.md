@@ -1,4 +1,4 @@
-#Software Testing Project-2: API Testing 
+# Software Testing Project-2: API Testing 
 
 ## Get all data
 ![api_ss_1](https://github.com/user-attachments/assets/67ae3be0-1f6c-4f49-b064-27ec878cccbc)
