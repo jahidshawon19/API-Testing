@@ -1,49 +1,37 @@
 {
 	"info": {
-		"_postman_id": "227a2677-8ec8-4454-82f3-f8a61a38f8a4",
+		"_postman_id": "a1bf2f7f-4056-4d4d-a321-016af0255163",
 		"name": "TicketBooking",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "10976390"
 	},
 	"item": [
 		{
-			"name": "BookingData",
+			"name": "Get Booking Data",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/booking/{{myID}}",
+					"raw": "{{url}}/booking/306",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"booking",
-						"{{myID}}"
+						"306"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "CustomerInfo",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var jsonData = pm.response.json()\r",
-							"pm.environment.set(\"myID\", jsonData.bookingid)"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
+			"name": "Add Booking Info",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"firstname\": \"jahid\",\r\n    \"lastname\": \"bro\",\r\n    \"totalprice\": 1200,\r\n    \"depositpaid\": true,\r\n    \"bookingdates\": {\r\n        \"checkin\": \"2023-01-01\",\r\n        \"checkout\": \"2023-01-11\"\r\n    },\r\n    \"additionalneeds\": \"Breakfast\"\r\n}",
+					"raw": "{\r\n    \"firstname\": \"Abdullah\",\r\n    \"lastname\": \"Arafat\",\r\n    \"totalprice\": 7295,\r\n    \"depositpaid\": true,\r\n    \"bookingdates\": {\r\n        \"checkin\": \"2024-08-16\",\r\n        \"checkout\": \"2024-08-19\"\r\n    },\r\n    \"additionalneeds\": \"Swimming Pool\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -64,60 +52,6 @@
 			"response": []
 		},
 		{
-			"name": "customerUpdate",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					},
-					{
-						"key": "Accept",
-						"value": "application/json",
-						"type": "text"
-					},
-					{
-						"key": "Cookie",
-						"value": "token={{accessData}}",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"firstname\": \"Akaram\",\r\n    \"lastname\": \"Mia\",\r\n    \"totalprice\": 1200,\r\n    \"depositpaid\": true,\r\n    \"bookingdates\": {\r\n        \"checkin\": \"2023-01-01\",\r\n        \"checkout\": \"2023-01-11\"\r\n    },\r\n    \"additionalneeds\": \"Breakfast\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{url}}/booking/{{myID}}",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"booking",
-						"{{myID}}"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "authentication",
 			"event": [
 				{
@@ -127,29 +61,14 @@
 							"var jsonData = pm.response.json()\r",
 							"pm.environment.set(\"accessData\", jsonData.token)"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
 			"request": {
 				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					},
-					{
-						"key": "Accept",
-						"value": "application/json",
-						"type": "text"
-					},
-					{
-						"key": "Cookie",
-						"value": "",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"username\":\"admin\",\r\n    \"password\":\"password123\"\r\n}",
@@ -172,9 +91,9 @@
 			"response": []
 		},
 		{
-			"name": "customerDelete",
+			"name": "Update Booking Info",
 			"request": {
-				"method": "DELETE",
+				"method": "PUT",
 				"header": [
 					{
 						"key": "Content-Type",
@@ -192,21 +111,30 @@
 						"type": "text"
 					}
 				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstname\": \"Abdullah\",\r\n    \"lastname\": \"Arafat\",\r\n    \"totalprice\": 6500,\r\n    \"depositpaid\": true,\r\n    \"bookingdates\": {\r\n        \"checkin\": \"2024-08-16\",\r\n        \"checkout\": \"2024-08-19\"\r\n    },\r\n    \"additionalneeds\": \"Swimming Pool\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "{{url}}/booking/{{myID}}",
+					"raw": "{{url}}/booking/4116",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"booking",
-						"{{myID}}"
+						"4116"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "customerPatch",
+			"name": "Patch Booking Info",
 			"request": {
 				"method": "PATCH",
 				"header": [
@@ -228,7 +156,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \r\n    \"totalprice\": 200\r\n \r\n   \r\n}",
+					"raw": "{\r\n    \r\n    \"totalprice\": 12520\r\n\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -236,13 +164,47 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/booking/{{myID}}",
+					"raw": "{{url}}/booking/306",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"booking",
-						"{{myID}}"
+						"306"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Booking Info",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "token={{accessData}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/booking/306",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"booking",
+						"306"
 					]
 				}
 			},
